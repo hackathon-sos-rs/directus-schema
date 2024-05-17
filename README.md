@@ -8,11 +8,9 @@ Como atualizar
 
 Para fazer o download de uma amostra recente do Directus, use o seguinte comando:
 
-sh
-
-Copy code
-
-`node ./pull_directus_schema.js`
+```sh
+node ./pull_directus_schema.js
+```
 
 Certifique-se de ter a variável `DIRECTUS_ROOT_TOKEN` configurada no seu ambiente. Esta variável representa o token de autenticação necessário para acessar a API do Directus.
 
@@ -21,11 +19,9 @@ Restaurando o esquema
 
 Para restaurar a partir de uma amostra recente do Directus, use o seguinte comando:
 
-sh
-
-Copy code
-
-`node ./push_directus_schema.js ./schemas/<schema_id>.json https://<host>:<port>`
+```sh
+node ./push_directus_schema.js ./schemas/<schema_id>.json https://<host>:<port>
+```
 
 Certifique-se de ter a variável `DIRECTUS_DEST_ROOT_TOKEN` configurada no seu ambiente. Esta variável representa o token de autenticação necessário para acessar o destino onde o esquema será restaurado.
 
