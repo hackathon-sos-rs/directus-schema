@@ -3,6 +3,11 @@ Hackathon - SOS - RS
 
 O propósito deste repositório é versionar o esquema do Directus. Ele contém um arquivo com o script para baixar a última versão e outro que armazena as versões anteriores.
 
+Requisitos
+----------
+
+-   Node.js 18 ou superior: Certifique-se de ter o Node.js na versão 18 ou superior instalado em seu ambiente.
+
 Como atualizar
 --------------
 
