@@ -1,0 +1,70 @@
+<template>
+    <div>
+      <h1>Pharmaceutical Form</h1>
+      <form @submit.prevent="submitForm">
+        <div>
+          <label for="id">ID</label>
+          <input type="number" id="id" v-model="form.id" required />
+        </div>
+        <div>
+          <label for="pharmaceutical_form">Pharmaceutical Form</label>
+          <input type="number" id="pharmaceutical_form" v-model="form.pharmaceutical_form" required />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </template>
+  
+  <script>
+  import { createDirectus, rest, createItem } from '@directus/sdk';
+  
+  const client = createDirectus('https://xyz.directus.app').with(rest());
+  
+  export default {
+    data() {
+      return {
+        form: {
+          id: null,
+          pharmaceutical_form: null,
+        },
+      };
+    },
+    methods: {
+      async submitForm() {
+        try {
+          const item = await client.request(
+            createItem('pharmaceutical_form', {
+              id: this.form.id,
+              pharmaceutical_form: this.form.pharmaceutical_form,
+            })
+          );
+          console.log("Form Submitted:", item);
+        } catch (error) {
+          console.error("Error submitting form:", error);
+        }
+      },
+    },
+  };
+  </script>
+  
+  <style scoped>
+  /* Add your styles here */
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  button {
+    align-self: flex-start;
+  }
+  </style>
+  
